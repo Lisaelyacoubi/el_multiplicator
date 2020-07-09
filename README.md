@@ -58,7 +58,7 @@ for($i = 1; $i<= 10; $i++){
 
 ```
 
-Dans la boucle, la variable $i contient un nombre de 1 à 10, on va multiplier ce nombre par la valeur récupérée dans la variable « $multiplication » et stocker ce résultat dans une variable « $sum ».
+Dans la boucle, la variable ```$i``` contient un nombre de 1 à 10, on va multiplier ce nombre par la valeur récupérée dans la variable « $multiplication » et stocker ce résultat dans une variable ```$sum ```.
 Il ne nous reste plus qu'à afficher le résultat avec un echo :
 
 ```
