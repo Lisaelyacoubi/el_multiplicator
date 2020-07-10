@@ -52,23 +52,24 @@
             </div>
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
-                <form class="form-control border-0" action="index.php" method="post">
-                  <select class="border-0 bg-primary text-white" name="revision">
+                <h4> Choisis une table de multiplication</h4>
+                  <form class="form-control border-0" action="index.php" method="post">
+                    <select class="border-0 bg-primary text-white" name="revision">
+                      <?php
+                        for($i = 1; $i <= 10; $i++){
+                          echo '<option value="'.$i.'"> Table ' . $i . '</option>';
+                        }
+                      ?>
+                    </select>
                     <?php
-                      for($i = 1; $i <= 10; $i++){
-                        echo '<option value="'.$i.'"> Table ' . $i . '</option>';
+                      if(isset($_POST['revision'])){
+                        $revision_multiplication = $_POST['revision'];
+                        $random_number = rand(1, 10);
+                        echo $revision_multiplication . " X " . $random_number ." = " . " ?";
                       }
                     ?>
-                  </select>
-                  <?php
-                    if(isset($_POST['revision'])){
-                      $revision_multiplication = $_POST['revision'];
-                      $random_number = rand(1, 10);
-                      echo $revision_multiplication . " X " . $random_number ." = " . " ?";
-                    }
-                  ?>
-                  <input type="submit" value="envoyer">
-                </form>
+                    <input type="submit" value="envoyer">
+                  </form>
 
                 <!--form  + input qui récupère la réponse -->
                 <!--comparer la réponse et le résultat -->
