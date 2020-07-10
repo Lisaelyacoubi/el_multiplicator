@@ -70,14 +70,23 @@
                     ?>
                     <input type="submit" value="envoyer">
                   </form>
+
                   <form class="" action="index.php" method="post">
                     <p>Entrer votre réponse ici :</p>
+
                     <?php
                     echo '<input type="number" name="result" required  size="10">';
+                    echo '<input type="hidden" value="<? $revision_multiplication ?>">';
+                    echo '<input type="hidden" value="<? $random_number ?>">';
+
                       if (isset($_POST['result'])){
                         $resultat = $_POST['result'];
+                        echo $revision_multiplication . $random_number;
                       }
+
+
                      ?>
+
                      <input type="submit" value="envoyer">
 
 
