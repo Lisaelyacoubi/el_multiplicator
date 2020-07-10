@@ -70,6 +70,18 @@
                     ?>
                     <input type="submit" value="envoyer">
                   </form>
+                  <form class="" action="index.php" method="post">
+                    <p>Entrer votre réponse ici :</p>
+                    <?php
+                    echo '<input type="number" name="result" required  size="10">';
+                      if (isset($_POST['result'])){
+                        $resultat = $_POST['result'];
+                      }
+                     ?>
+                     <input type="submit" value="envoyer">
+
+
+                  </form>
 
                 <!--form  + input qui récupère la réponse -->
                 <!--comparer la réponse et le résultat -->
