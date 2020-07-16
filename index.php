@@ -7,11 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-    <?php
-    session_start();
-    $_SESSION["newsession"] = $value;
 
-     ?>
     <section class="container d-flex justify-content-center pt-4">
       <!--Card table multiplication -->
       <div class="card text-center" style="width: 18rem;">
@@ -61,36 +57,49 @@
                         }
                       ?>
                     </select>
-                    <?php
-                      if(isset($_POST['revision'])){
-                        $revision_multiplication = $_POST['revision'];
-                        $random_number = rand(1, 10);
-                        echo $revision_multiplication . " X " . $random_number ." = " . " ?";
-                      }
-                    ?>
+
                     <input type="submit" value="envoyer">
                   </form>
 
+                  <?php
+                    if(isset($_POST['revision'])){
+                      $revision_multiplication = $_POST['revision'];
+                      $random_number = rand(1, 10);
+                      echo $revision_multiplication . " X " . $random_number ." = " . " ?";
+                    }
+                  ?>
+
+
                   <form class="" action="index.php" method="post">
                     <p>Entrer votre réponse ici :</p>
+                    <input type="number" name="result" placeholder="ex: 45" size="10">
+                    <input type="hidden" name="random_number" value="<?= $random_number ?>">
+                    <input type="hidden" name="revision" value="<?= $revision_multiplication ?>">
 
-                    <?php
-                    echo '<input type="number" name="result" required  size="10">';
-                    echo '<input type="hidden" value="<? $revision_multiplication ?>">';
-                    echo '<input type="hidden" value="<? $random_number ?>">';
-
-                      if (isset($_POST['result'])){
-                        $resultat = $_POST['result'];
-                        echo $revision_multiplication . $random_number;
-                      }
-
-
-                     ?>
 
                      <input type="submit" value="envoyer">
 
-
                   </form>
+
+                  <?php
+                    if (isset($_POST['result'])){
+                      $resultat = $_POST['result'];
+                      $number = $_POST['random_number'];
+                      revision($revision_multiplication, $resultat, $number);
+                    }
+
+                    function revision($revision_multiplication, $resultat, $number){
+                      echo "<br><p>" . $number . " X " . $revision_multiplication . " = " . $resultat . "</p>";
+                      if ($resultat == ($number * $revision_multiplication)){
+                        echo "Bravo, tu as réussi !!";
+                      }
+                      else if ($resultat !== ($number * $revision_multiplication)){
+                        echo "Désolé, ce n'est pas la bonne réponse, essaie encore";
+                      }
+                    }
+
+
+                   ?>
 
                 <!--form  + input qui récupère la réponse -->
                 <!--comparer la réponse et le résultat -->
