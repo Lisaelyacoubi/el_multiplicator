@@ -73,7 +73,7 @@
                   <form class="" action="index.php" method="post">
                     <p>Entrer votre réponse ici :</p>
                     <input type="number" name="result" placeholder="ex: 45" size="10">
-                    <input type="hidden" name="random_number" value="<?= $random_number ?>">
+                    <input type="hidden" name="randomnumber" value="<?= $random_number ?>">
                     <input type="hidden" name="revision" value="<?= $revision_multiplication ?>">
 
 
@@ -84,16 +84,16 @@
                   <?php
                     if (isset($_POST['result'])){
                       $resultat = $_POST['result'];
-                      $number = $_POST['random_number'];
-                      revision($revision_multiplication, $resultat, $number);
+                      $random_number = $_POST['randomnumber'];
+                      revision($revision_multiplication, $resultat, $random_number);
                     }
 
-                    function revision($revision_multiplication, $resultat, $number){
-                      echo "<br><p>" . $number . " X " . $revision_multiplication . " = " . $resultat . "</p>";
-                      if ($resultat == ($number * $revision_multiplication)){
+                    function revision($revision_multiplication, $resultat, $random_number){
+                      echo "<br><p>" . $random_number . " X " . $revision_multiplication . " = " . $resultat . "</p>";
+                      if ($resultat == ($random_number * $revision_multiplication)){
                         echo "Bravo, tu as réussi !!";
                       }
-                      else if ($resultat !== ($number * $revision_multiplication)){
+                      else if ($resultat !== ($random_number * $revision_multiplication)){
                         echo "Désolé, ce n'est pas la bonne réponse, essaie encore";
                       }
                     }
