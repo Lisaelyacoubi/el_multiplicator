@@ -58,16 +58,18 @@
                       ?>
                     </select>
 
-                    <input type="submit" value="envoyer">
+                    <input type="submit" name="" value="envoyer" class="btn btn-sm btn-dark">
                   </form>
 
                   <?php
                     if(isset($_POST['revision'])){
                       $revision_multiplication = $_POST['revision'];
                       $random_number = rand(1, 10);
-                      echo $revision_multiplication . " X " . $random_number ." = " . " ?";
+                      $test = $revision_multiplication . " X " . $random_number ." = " . " ?";
                     }
                   ?>
+
+                  <p class="font-weight-bold text-secondary pl-3 pt-2"><?php echo $test; ?></p>
 
 
                   <form class="" action="index.php" method="post">
@@ -77,7 +79,7 @@
                     <input type="hidden" name="revision" value="<?= $revision_multiplication ?>">
 
 
-                     <input type="submit" value="envoyer">
+                    <input type="submit" name="" value="envoyer" class="btn btn-sm btn-dark">
 
                   </form>
 
