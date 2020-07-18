@@ -65,11 +65,9 @@
                     if(isset($_POST['revision'])){
                       $revision_multiplication = $_POST['revision'];
                       $random_number = rand(1, 10);
-                      $test = $revision_multiplication . " X " . $random_number ." = " . " ?";
+                      echo $revision_multiplication . " X " . $random_number ." = " . " ?";
                     }
                   ?>
-
-                  <p class="font-weight-bold text-secondary pl-3 pt-2"><?php echo $test; ?></p>
 
 
                   <form class="" action="index.php" method="post">
@@ -91,13 +89,14 @@
                     }
 
                     function revision($revision_multiplication, $resultat, $random_number){
-                      echo "<br><p>" . $random_number . " X " . $revision_multiplication . " = " . $resultat . "</p>";
+                      $sum_result = $random_number * $revision_multiplication;
                       if ($resultat == ($random_number * $revision_multiplication)){
-                        echo "Bravo, tu as réussi !!";
+                        echo "<br><p>Bravo, tu as réussi !!</p>";
                       }
                       else if ($resultat !== ($random_number * $revision_multiplication)){
-                        echo "Désolé, ce n'est pas la bonne réponse, essaie encore";
+                        echo "<br><p>Désolé, ce n'est pas la bonne réponse, essaie encore <br> Réponse : " . $random_number . " X " . $revision_multiplication . " = " .  $sum_result . "</p>";
                       }
+                      echo "<br><p>". "Tu as écrit : " . $random_number . " X " . $revision_multiplication . " = " . $resultat . "</p>";
                     }
 
 
